@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_13_165321) do
+ActiveRecord::Schema.define(version: 2020_05_13_172425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,9 @@ ActiveRecord::Schema.define(version: 2020_05_13_165321) do
     t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "owner_id", null: false
     t.index ["category_id"], name: "index_tasks_on_category_id"
+    t.index ["owner_id"], name: "index_tasks_on_owner_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,4 +47,5 @@ ActiveRecord::Schema.define(version: 2020_05_13_165321) do
   end
 
   add_foreign_key "tasks", "categories"
+  add_foreign_key "tasks", "users", column: "owner_id"
 end
