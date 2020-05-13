@@ -13,3 +13,6 @@ es:
   common:
     back: Atrás
   hello: Hello world
+  task:
+    errors:
+      invalid_due_date: La fecha no puede estar en el pasado
