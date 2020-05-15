@@ -23,11 +23,17 @@ class Task < ApplicationRecord
   validates :name, uniqueness: { case_insensitive: false }
   validate :due_date_validity
 
+  before_create :create_code
+
   accepts_nested_attributes_for :participating_users, allow_destroy: true
 
   def due_date_validity
     return if due_date.blank?
     return if due_date > Date.today
     errors.add :due_date, I18n.t('task.errors.invalid_due_date')
+  end
+
+  def create_code
+    self.code = "#{owner_id}#{Time.now.to_i.to_s(36)}#{SecureRandom.hex(8)}"
   end
 end
