@@ -1,27 +1,31 @@
-%h1 Listing tasks
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Description
-      %th Due date
-      %th Category
-      %th
-      %th
-      %th
-
-  %tbody
-    - @tasks.each do |task|
-      %tr
-        %td= task.name
-        %td= task.description
-        %td= task.due_date
-        %td= task.category
-        %td= link_to 'Show', task
-        %td= link_to 'Edit', edit_task_path(task)
-        %td= link_to 'Destroy', task, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Task', new_task_path
+.tasks.index-page
+  .display-4 Lista de Tareas
+  %p.text-muted.mb-2 A continuación verás toda la lista de tareas creadas, podrás crear una nueva tarea, editarla o eliminarla si eres el creador de la misma
+  .card.bg-gray
+    .card-body.pb-2
+      .tasks-container
+        - @tasks.each do |task|
+          .task-container
+            .task-info
+              .task-title
+                %span.small= "[##{task.code}]"
+                = task.name
+                %span.task-category
+                  = task.category.name
+              .task-description= task.description
+              .task-dates
+                %b= task.owner.email
+                = "creado el #{l task.created_at, format: :long} / vence el #{task.due_date}"
+            .task-interactions
+              .task-participants
+                - task.participating_users.includes(:user).each do |participant|
+                  .task-participant{ class: "task-participant--#{participant.role}" }
+                    = image_tag "https://robohash.org/#{participant.user.email}?size=60x60", title: participant.user.email
+              .task-actions
+                .dropdown
+                  %a#taskMenu{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown"}
+                    .fas.fa-ellipsis-v
+                  .dropdown-menu{"aria-labelledby" => "taskMenu"}
+                    = link_to t('common.show'), task, class: 'dropdown-item'
+                    = link_to t('common.edit'), edit_task_path(task), class: 'dropdown-item'
+                    = link_to t('common.destroy'), task, :method => :delete, :data => { :confirm => t('common.are_you_sure') }, class: 'dropdown-item'

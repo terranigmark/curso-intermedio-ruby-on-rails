@@ -1,0 +1,23 @@
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark-blue
+  %a.navbar-brand
+    = image_tag 'logo.png', class: 'd-inline-block align-top', width: 85
+  %button.navbar-toggler{"aria-controls" => "navbarNavDropdown", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarNavDropdown", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarNavDropdown.collapse.navbar-collapse
+    %ul.navbar-nav
+      %li.nav-item.active
+        %a.nav-link{ href: root_path }
+          Inicio
+          %span.sr-only (current)
+      %li.nav-item
+        %a.nav-link{ href: categories_path } Categorías
+  = link_to 'Crear Tarea', new_task_path, class: 'btn btn-light ml-2'
+  .dropdown.dropdown-user
+    %a#userMenu{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown"}
+      = image_tag "https://robohash.org/#{current_user.email}?size=38x38"
+    .dropdown-menu.dropdown-menu-right{"aria-labelledby" => "userMenu"}
+      .dropdown-item.small.text-right= current_user.email
+      .dropdown-divider
+      = link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do
+        .fas.fa-sign-out
+        Cerrar sesión

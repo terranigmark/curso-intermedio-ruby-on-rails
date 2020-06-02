@@ -1,0 +1,121 @@
+.tasks
+  &.index-page
+    .card
+      border-radius: 10px
+      border: none
+      &.bg-gray
+        background-color: #cacaca
+    .tasks-container
+      .task-container
+        background-color: white
+        margin-bottom: 25px
+        padding: 10px
+        border-radius: 10px
+        border-left: 8px solid gray
+        .task-info
+          display: inline-block
+          .task-title
+            font-weight: 600
+            .task-category
+              background-color: yellow
+              padding: 5px
+              font-size: small
+              border-radius: 10px
+              margin-left: 5px
+          .task-description
+            font-weight: 300
+            font-style: italic
+          .task-dates
+            font-size: small
+        .task-interactions
+          float: right
+          margin-top: 11px
+          .task-participants
+            display: inline-block
+            .task-participant
+              display: inline-block
+              img
+                width: 50px
+                border-radius: 50%
+                background-color: #e9ecef
+              &.task-participant--responsible
+                img
+                  background-color: #ef5634
+          .task-actions
+            display: inline-block
+            .dropdown
+              .fa-ellipsis-v
+                font-size: 34px
+                vertical-align: middle
+                margin-left: 10px
+                cursor: pointer
+                color: #5e676d
+        &.task-status--open
+          border-left-color: 8px solid green
+        &.task-status--close
+          border-left-color: 8px solid green
+  &.show-page
+    .task-participants
+      .task-participants-header
+        padding: 10px
+        background-color: #273b47
+        color: white
+        font-size: small
+        border-radius: 10px
+        margin-bottom: 10px
+      .task-participant
+        display: inline-block
+        margin-bottom: 15px
+        img
+          width: 50px
+          border-radius: 50%
+          background-color: #e9ecef
+        &.task-participant--responsible
+          img
+            background-color: #ef5634
+    .notes-container
+      .no-notes
+        font-weight: bold
+        color: #cccccc
+        font-size: 50px
+        margin: 25px
+        text-align: center
+    .notes-container
+      .notes
+        max-height: 300px
+        overflow-y: auto
+        .note-element
+          padding-bottom: 10px
+          // border-bottom: solid 1px gray
+          margin: 10px 0
+          .avatar
+            display: inline-block
+            vertical-align: top
+            img
+              border-radius: 50%
+              width: 50px
+              height: 50px
+              background-color: cornflowerblue
+              text-align: center
+              vertical-align: top
+              padding-top: 5px
+              color: white
+          .note
+            padding-left: 10px
+            padding-right: 10px
+            display: inline-block
+            width: 70%
+            width: -webkit-calc(100% - 55px)
+            width: -moz-calc(100% - 55px)
+            width: calc(100% - 55px)
+            .past-time
+              float: right
+              color: gray
+              font-weight: bold
+              font-size: 11px
+            .user
+              color: gray
+              font-weight: bold
+              font-size: smaller
+            .content
+              color: gray

@@ -1,3 +1,12 @@
 .nested-fields
-  = f.input :user_id, as: :select, collection: User.all - [current_user]
-  = f.input :role
+  %hr
+  .text-right
+  .row
+    .col-4
+      = f.input :user_id, label: 'Usuario', as: :select, collection: User.all - [current_user], label_method: -> (u) { u.email }
+    .col-4
+      = f.input :role, label: 'Rol', as: :select, collection: Participant.roles, value_method: -> (r) { r[0] }
+    .col-4.text-left
+      .mt-2
+      = link_to_remove_association f, class: 'btn btn-warning btn-sm btn-flat mt-4' do
+        .fas.fa-trash

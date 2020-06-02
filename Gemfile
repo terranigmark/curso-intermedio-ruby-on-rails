@@ -28,6 +28,7 @@ gem 'rails-i18n'
 gem 'devise'
 gem 'cocoon'
 gem 'cancancan'
+gem 'font-awesome-sass', '~> 5.12.0'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

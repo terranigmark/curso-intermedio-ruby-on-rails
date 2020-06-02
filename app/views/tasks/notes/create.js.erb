@@ -1,6 +1,7 @@
 <%- if @note.persisted? %>
   var parentNode = document.querySelector(".notes-container .notes")
   var div = document.createElement("div")
+  div.classList.add("note-element");
   div.innerHTML = "<%= j render 'tasks/notes/note', note: @note %>"
   parentNode.appendChild(div)
   document.getElementById("note_body").value = "";

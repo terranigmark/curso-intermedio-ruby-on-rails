@@ -2,10 +2,12 @@
 = simple_form_for(@category) do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
-
   .form-inputs
-    = f.input :name, label: t('.name')
-    = f.input :description, label: t('.description')
-
+    .row
+      .col-12
+        = f.input :name, label: 'Nombre'
+    .row
+      .col-12
+        = f.input :description, as: :text, label: 'Descripción'
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: 'btn btn-info'

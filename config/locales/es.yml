@@ -11,7 +11,11 @@ es:
       name: Nombre
     new_category: Nueva Categoría
   common:
+    are_you_sure: ¿Está seguro?
     back: Atrás
+    destroy: Eliminar
+    edit: Editar
+    show: Mostrar
   hello: Hello world
   task:
     errors:

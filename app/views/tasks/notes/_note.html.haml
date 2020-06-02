@@ -1,4 +1,9 @@
-%p= note.body
-%p= time_ago_in_words note.created_at
-%p= note.user.email
-%hr
+.avatar
+  = image_tag "https://robohash.org/#{note.user.email}?size=60x60"
+.note
+  .past-time
+    = time_ago_in_words note.created_at
+  .user
+    = note.user.email
+  .content
+    = note.body
