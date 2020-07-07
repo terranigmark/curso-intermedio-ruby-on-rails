@@ -5,11 +5,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.joins(:participants).where(
-      'owner_id = ? OR participants.user_id = ?',
-      current_user.id,
-      current_user.id,
-    ).group(:id)
+    @tasks = (current_user.owned_tasks + current_user.tasks).uniq
   end
 
   # GET /tasks/1

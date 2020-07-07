@@ -10,7 +10,7 @@
       .col-sm-3
         = f.input :due_date, as: :string, input_html: { type: :date }, label: 'Fecha de vencimiento'
       .col-sm-3
-        = f.association :category, label: 'Categoría'
+        = f.input :category_id, label: 'Categoría', as: :select, collection: Category.all
     .row
       .col-sm-12
         = f.input :description
