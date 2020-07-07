@@ -64,6 +64,7 @@ group :test do
   gem 'database_cleaner'
   gem 'faker'
   gem 'capybara'
+  gem 'mongoid-rspec'
 end
 
 group :production do
