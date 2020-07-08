@@ -13,6 +13,7 @@
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
     "roboto-fontface": "^0.10.0",
+    "selectize": "^0.12.6",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
