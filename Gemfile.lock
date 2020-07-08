@@ -83,6 +83,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
+    childprocess (3.0.0)
     cocoon (1.2.14)
     coderay (1.1.2)
     concurrent-ruby (1.1.6)
@@ -234,6 +235,7 @@ GEM
       rspec-mocks (~> 3.9)
       rspec-support (~> 3.9)
     rspec-support (3.9.3)
+    rubyzip (2.3.0)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.3.0)
@@ -244,6 +246,9 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    selenium-webdriver (3.142.7)
+      childprocess (>= 0.5, < 4.0)
+      rubyzip (>= 1.2.2)
     simple_form (5.0.2)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -312,6 +317,7 @@ DEPENDENCIES
   rails_12factor
   rspec-rails
   sass-rails (>= 6)
+  selenium-webdriver
   simple_form
   turbolinks (~> 5)
   tzinfo-data
