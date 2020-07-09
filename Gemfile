@@ -30,6 +30,7 @@ gem 'devise'
 gem 'cocoon'
 gem 'cancancan'
 gem 'font-awesome-sass', '~> 5.12.0'
+gem 'sucker_punch'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
