@@ -13,12 +13,23 @@
               %th Nombre
               %th Categoría
               %th Creador
+              %th Estado
+              %th
           %tbody
             %tr
               %td= @task.code || '213r'
               %td= @task.name
               %td= @task.category.name
               %td= @task.owner.email
+              %td.task-status= @task.status
+              %td
+                .dropdown
+                  %a#taskMenu{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown"}
+                    .fas.fa-ellipsis-v
+                  .dropdown-menu{"aria-labelledby" => "taskMenu"}
+                    - available_events_for(@task).each do |event|
+                      = link_to event, trigger_task_path(@task, event: event, format: :js), remote: true, method: :patch, class: 'dropdown-item'
+
         %table.table.table-striped.table-borderless
           %thead
             %tr
